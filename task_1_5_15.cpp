@@ -1,36 +1,19 @@
 #include <iostream>
+#include <vector>
 using namespace std;
 
 int main() {
-    int maxs = 0, n, test;
+    int maxs = 0, n;
+    vector<int> array;
     cin >> n;
     while (n != 0){
-        cin >> test;
+       array.push_back(n);
+       cin >> n;}
 
-        if (test == 0){
-            break;
+    for (int i=1; i < array.size() - 1; i++){
+        if ((array[i-1] < array[i]) and (array[i] > array[i+1])){
+            maxs++;
         }
-
-        if (test > n){
-            cin >> n;
-
-            if (n == 0){
-                break;
-            }
-
-            if (n < test){
-                maxs++;
-                cin >> n;
-                continue;
-            } else{
-
-                continue;
-            }
-        } else{
-            cin >> n;
-            continue;
-        }
-        cin >> n;
     }
     cout << maxs;
     return 0;
